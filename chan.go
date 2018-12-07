@@ -3,6 +3,8 @@ package limit
 import (
 	"fmt"
 	"time"
+
+	"github.com/luopengift/log"
 )
 
 // Chan channel
@@ -57,7 +59,9 @@ func (c Chan) Len() int { return len(c) }
 func (c *Chan) Run(fun func() error) error {
 	c.Add()
 	go func() {
-		fun()
+		if err := fun(); err != nil {
+			log.Error("%s", err)
+		}
 		c.Done()
 	}()
 	return nil
