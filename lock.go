@@ -1,5 +1,5 @@
 package limit
 
-import "sync"
+// import "sync"
 
-type Mux map[string]*sync.Mutex
+// type Mux map[string]*sync.Mutex

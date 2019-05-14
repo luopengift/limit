@@ -60,7 +60,7 @@ func (c *Chan) Run(fun func() error) error {
 	c.Add()
 	go func() {
 		if err := fun(); err != nil {
-			log.Error("%s", err)
+			log.Errorf("%s", err)
 		}
 		c.Done()
 	}()

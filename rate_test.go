@@ -11,7 +11,7 @@ func Test_Limit(t *testing.T) {
 	for i := 0; i < 10; i++ {
 		go func(i int) {
 			limit.Do(func() error {
-				log.Info("%v", i)
+				log.Infof("%v", i)
 				return nil
 			})
 		}(i)
